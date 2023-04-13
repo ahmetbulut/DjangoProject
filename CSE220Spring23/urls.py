@@ -22,5 +22,6 @@ urlpatterns = [
     path('', index),
     path('toy/', include('toy.urls')),
     path('blog/', include('blog.urls')),
+    path('library/', include('library.urls'))
     # path('polls/', include('polls.urls'))
 ]

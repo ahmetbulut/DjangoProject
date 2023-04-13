@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h4>Author Registrations</h4>
+    {% for message in messages %}
+        <i>{{ message }}</i>
+    {% endfor %}
+
+    <p>
+
+    <form method="get" action="/library/">
+        <label>Wanna add more authors?
+            <button>Sure!</button>
+        </label>
+    </form>
+
+{% endblock %}

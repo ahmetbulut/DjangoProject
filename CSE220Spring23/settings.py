@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
+    'library'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'CSE220Spring23.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['CSE220Spring23/templates', 'toy/templates', 'blog/templates'],
+        'DIRS': ['CSE220Spring23/templates', 'toy/templates', 'blog/templates', 'library/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
