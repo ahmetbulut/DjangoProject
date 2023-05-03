@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 
+
 # a request to display the current time on a web page
 def current_datetime(request):
-
     now = datetime.datetime.now()
 
     response = """ 
@@ -20,10 +20,9 @@ def current_datetime(request):
 
     return HttpResponse(response)
 
-def current_datetime_better(request):
-    now = datetime.datetime.now()
-    return render(request, "current_datetime.html", context= {"now": now})
 
+def carousel_view(request):
+    return render(request, "carousel.html")
 
 # demonstration of the contents of request objects
 def display_request(request):
