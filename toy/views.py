@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 
+from plotly.offline import plot
+from plotly.graph_objs import Scatter
+
 # a request to display the current time on a web page
 def current_datetime(request):
 
@@ -20,10 +23,22 @@ def current_datetime(request):
 
     return HttpResponse(response)
 
-def current_datetime_better(request):
-    now = datetime.datetime.now()
-    return render(request, "current_datetime.html", context= {"now": now})
+def home(request):
+    return render(request, "home.html")
 
+def carousel_demo(request):
+    return render(request, "carousel.html")
+
+def plotly_demo(request):
+    x_data = [0, 1, 2, 3]
+    y_data = [4, 1, 1 ,16]
+
+    plot_div = plot([Scatter(x=x_data, y=y_data,
+                             mode='lines', name='Our First Graph in Plotly',
+                             opacity=1.0, marker_color='blue')],
+                    output_type='div')
+
+    return render(request, "plotly_demo.html", context={'plot_div': plot_div})
 
 # demonstration of the contents of request objects
 def display_request(request):
