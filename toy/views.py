@@ -36,7 +36,7 @@ def plotly_demo(request):
     plot_div = plot([Scatter(x=x_data, y=y_data,
                              mode='lines', name='Our First Graph in Plotly',
                              opacity=1.0, marker_color='blue')],
-                    output_type='div')
+                    output_type='div', include_plotlyjs=False)
 
     return render(request, "plotly_demo.html", context={'plot_div': plot_div})
 
