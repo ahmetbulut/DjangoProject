@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import datetime
 
 from plotly.offline import plot
-from plotly.graph_objs import Scatter
+from plotly.graph_objs import Scatter, Bar
 
 # a request to display the current time on a web page
 def current_datetime(request):
@@ -30,11 +30,11 @@ def carousel_demo(request):
     return render(request, "carousel.html")
 
 def plotly_demo(request):
-    x_data = [0, 1, 2, 3]
-    y_data = [4, 1, 1 ,16]
+    x_data = [0, 1, 2, 3, 4, 5, 10, 15, 20, 33, 100, 500, 900]
+    y_data = [4, 1, 1 ,16, 1, 1, 1, 5, 2, 3, 100, 5, 90]
 
-    plot_div = plot([Scatter(x=x_data, y=y_data,
-                             mode='lines', name='Our First Graph in Plotly',
+    plot_div = plot([Bar(x=x_data, y=y_data,
+                             name='Our First Graph in Plotly',
                              opacity=1.0, marker_color='blue')],
                     output_type='div', include_plotlyjs=False)
 
