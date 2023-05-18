@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    Hello {{ user }}!
+    <p>
+    <form method="get" action="/blog/">
+        <label> Books to retrieve:
+            <input type="text" name="filter">
+        </label>
+        <button>Retrieve</button>
+    </form>
+
+    <h4> Here are the books matching your criteria: </h4>
+    <ul>
+        {% for book in books %}
+            <li> {{ book }} </li>
+        {% endfor %}
+    </ul>
+
+    {% if books %}
+        Number of books that matched your criteria: {{ books|length }}
+    {% else %}
+        No books matched your criteria!
+    {% endif %}
+
+{% endblock %}

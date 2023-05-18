@@ -1,0 +1,6 @@
+# here is a representative deployment script.
+git clone https://github.com/ahmetbulut/CSE220Spring23
+python3.9 -m unittest
+cd CSE220Spring23
+pip3.9 install -r requirements.txt
+python3.9 manage.py runserver 0.0.0.0:80
