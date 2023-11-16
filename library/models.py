@@ -13,7 +13,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     numpages = models.IntegerField()
 
-    publisher = models.OneToOneField(Publisher,
+    publisher = models.ForeignKey(Publisher,
                                      on_delete=models.CASCADE,
                                      null=True,
                                      blank=True

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h4>Object Registrations</h4>
+{#    When form is submitted, Relative URL is set to 'create'#}
+{#    Form method is set to POST.#}
+{#    An http request is made to the above URL with the form attached.#}
+    <form method="post" action="create">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button>Save</button>
+    </form>
+
+    <form method="post" action="search">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button>Search</button>
+    </form>
+
+{% endblock %}

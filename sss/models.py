@@ -6,8 +6,14 @@ class Address(models.Model):
     state = models.CharField(max_length=2)
     postcode = models.SmallIntegerField()
 
+    def __str__(self):
+        return " ".join([self.street, self.city, self.state, str(self.postcode)])
+
 class Customer(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class BillingAddress(Address):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
@@ -15,6 +21,9 @@ class BillingAddress(Address):
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     shippingaddress = models.OneToOneField(Address, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.customer) + " @ " + str(self.shippingaddress)
 
 class OrderPayment(models.Model):
     cardNumber = models.BigIntegerField()

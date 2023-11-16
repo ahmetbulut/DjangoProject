@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-utj&iqqt!e+3(n$fg$)9$l)(y0h132g)s!6%+3iz@&1so-b86n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 # Application definition
 
@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
     'library',
     'toy',
     'sss'
@@ -57,7 +56,11 @@ ROOT_URLCONF = 'CSE220Spring23.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['CSE220Spring23/templates', 'toy/templates', 'blog/templates', 'library/templates'],
+        'DIRS': ['CSE220Spring23/templates',
+                 'toy/templates',
+                 'blog/templates',
+                 'library/templates',
+                 'sss/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

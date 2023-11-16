@@ -5,9 +5,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
-def home(request):
-    return render(request, "home.html")
-
 # def home_form(request):
 #     # if this is a POST request we need to process the form data
 #     if request.method == 'POST':
@@ -23,7 +20,8 @@ def home(request):
 #             a.save()
 #             # redirect to a new URL:
 #             #return HttpResponseRedirect('/library/success')
-#             return render(request, "model_saved.html", {'messages': [str(a) + ' saved!']})
+#             return render(request, "model_saved.html",
+#             {'messages': [str(a) + ' saved!'], "redirect": '/library'})
 #
 #     # if a GET (or any other method) we'll create a blank form
 #     else:
@@ -48,21 +46,11 @@ def home_form(request):
             b.save()
             # redirect to a new URL:
             #return HttpResponseRedirect('/library/success')
-            return render(request, "model_saved.html", {'messages': [str(b) + ' saved!']})
+            return render(request, "model_saved.html",
+                          {'messages': [str(b) + ' saved!'], "redirect": '/library'})
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = BookForm()
 
     return render(request, 'home_form.html', {'form': form})
-
-def save_author(request):
-    messages = []
-    if request.method == 'POST':
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
-        a = Author(firstname=firstname, lastname=lastname)
-        a.save()
-        messages.append(str(a) + ' saved!')
-
-    return render(request, "model_saved.html", context={"messages" : messages})
